@@ -47,6 +47,24 @@ A powerful web application for transcribing audio and video files using OpenAI's
 - **Secure Authentication**: SAML 2.0 authentication integration with Okta
 - **Single Sign-On**: Seamless SSO experience with Okta provider
 
+## Supported Media Types
+
+### Audio Formats
+- MP3 (.mp3)
+- WAV (.wav)
+- M4A (.m4a)
+- MOV (.mov)
+- MP4 (.mp4)
+
+### Video Formats
+- MP3 (.mp3)
+- WAV (.wav)
+- M4A (.m4a)
+- MOV (.mov)
+- MP4 (.mp4)
+
+The application automatically extracts audio from video files for transcription processing.
+
 ## Configuration Options
 
 The application provides several configuration options during transcription:
