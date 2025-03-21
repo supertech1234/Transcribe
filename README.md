@@ -27,7 +27,7 @@ SOFTWARE.
 
 # Audio/Video Transcription Web Application
 
-A powerful web application for transcribing audio and video files using OpenAI's Whisper model or Azure Speech Services. This application provides accurate transcriptions with speaker identification capabilities and supports multiple output formats.
+A powerful web application for transcribing audio and video files using Azure OpenAI's Whisper model or Azure Speech Services. This application provides accurate transcriptions with speaker identification capabilities and supports multiple output formats.
 
 ## Screenshot
 ![image](https://github.com/user-attachments/assets/9a784993-e6b4-46b8-9b5d-a964bc7e75ca)
