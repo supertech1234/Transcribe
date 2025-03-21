@@ -543,4 +543,4 @@ SOFTWARE.
 
 ## Support
 
-For support, please contact open an issue. 
+For support, please open an issue. 
