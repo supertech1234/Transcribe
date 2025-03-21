@@ -44,7 +44,7 @@ A powerful web application for transcribing audio and video files using OpenAI's
 - **Job Isolation**: Each transcription job gets its own directory for better organization and reliability
 - **Automatic Cleanup**: Built-in cleanup service for old job directories and temporary files
 - **Responsive UI**: Modern, user-friendly interface built with Next.js 14 and Tailwind CSS
-- **Secure Authentication**: SAML 2.0 authentication integration with Okta
+- **Secure Authentication**: OIDC authentication integration with Okta
 - **Single Sign-On**: Seamless SSO experience with Okta provider
 
 ## Supported Media Types
