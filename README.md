@@ -35,7 +35,7 @@ A powerful web application for transcribing audio and video files using Azure Op
 
 ## Features
 
-- **Accurate Transcription**: Powered by OpenAI's Whisper model or Azure Speech Services for high-quality transcriptions
+- **Accurate Transcription**: Powered by Azure OpenAI's Whisper model or Azure Speech Services for high-quality transcriptions
 - **Speaker Identification**: Automatically identifies different speakers in the audio
 - **Multiple Format Support**: Upload audio or video files in various formats
 - **Download Options**: Export transcriptions in TXT, DOCX, or SRT subtitle formats
