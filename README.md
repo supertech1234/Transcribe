@@ -521,4 +521,4 @@ SOFTWARE.
 
 ## Support
 
-For support, please contact [your contact information]
+For support, please contact open an issue. 
