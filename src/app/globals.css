@@ -1,0 +1,176 @@
+/*
+ * Author: Supertech1234
+ * Github Repo: @https://github.com/supertech1234
+ * 
+ * MIT License
+ * 
+ * Copyright (c) 2025 supertech1234
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* Custom animations */
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slideUp {
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  .animate-pulse-once {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) 1;
+  }
+  
+  /* Custom scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 3px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+  }
+  
+  /* Speaker styles */
+  .speaker-box {
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
+    position: relative;
+    border: 2px solid;
+    border-radius: 0.25rem;
+  }
+  
+  .speaker-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #000;
+  }
+  
+  /* Speaker colors */
+  .speaker-1 {
+    border-color: #3b82f6; /* blue-500 */
+    background-color: #eff6ff; /* blue-50 */
+  }
+  
+  .speaker-2 {
+    border-color: #10b981; /* emerald-500 */
+    background-color: #ecfdf5; /* emerald-50 */
+  }
+  
+  .speaker-3 {
+    border-color: #f59e0b; /* amber-500 */
+    background-color: #fffbeb; /* amber-50 */
+  }
+  
+  .speaker-4 {
+    border-color: #ec4899; /* pink-500 */
+    background-color: #fdf2f8; /* pink-50 */
+  }
+  
+  .speaker-5 {
+    border-color: #6366f1; /* indigo-500 */
+    background-color: #eef2ff; /* indigo-50 */
+  }
+  
+  .speaker-6 {
+    border-color: #8b5cf6; /* violet-500 */
+    background-color: #f5f3ff; /* violet-50 */
+  }
+  
+  .speaker-7 {
+    border-color: #f97316; /* orange-500 */
+    background-color: #fff7ed; /* orange-50 */
+  }
+  
+  .speaker-8 {
+    border-color: #6b7280; /* gray-500 */
+    background-color: #f9fafb; /* gray-50 */
+  }
+  
+  .speaker-9 {
+    border-color: #0ea5e9; /* sky-500 */
+    background-color: #f0f9ff; /* sky-50 */
+  }
+  
+  .speaker-10 {
+    border-color: #14b8a6; /* teal-500 */
+    background-color: #f0fdfa; /* teal-50 */
+  }
+  
+  /* Speaker name colors */
+  .speaker-name-1 { color: #3b82f6; /* blue-500 */ }
+  .speaker-name-2 { color: #10b981; /* emerald-500 */ }
+  .speaker-name-3 { color: #f59e0b; /* amber-500 */ }
+  .speaker-name-4 { color: #ec4899; /* pink-500 */ }
+  .speaker-name-5 { color: #6366f1; /* indigo-500 */ }
+  .speaker-name-6 { color: #8b5cf6; /* violet-500 */ }
+  .speaker-name-7 { color: #f97316; /* orange-500 */ }
+  .speaker-name-8 { color: #6b7280; /* gray-500 */ }
+  .speaker-name-9 { color: #0ea5e9; /* sky-500 */ }
+  .speaker-name-10 { color: #14b8a6; /* teal-500 */ }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}

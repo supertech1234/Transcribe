@@ -1,0 +1,69 @@
+/**
+ * Author: Supertech1234
+ * Github Repo: @https://github.com/supertech1234
+ * 
+ * MIT License
+ * 
+ * Copyright (c) 2025 supertech1234
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+
+import { NextRequest, NextResponse } from 'next/server';
+
+const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
+const MAX_REQUESTS = 30; // Increased from 10 to 30 requests per window
+
+const rateLimit = new Map<string, { count: number; timestamp: number }>();
+
+// Clean up old entries
+setInterval(() => {
+  const now = Date.now();
+  // Convert entries to array before iteration
+  Array.from(rateLimit.entries()).forEach(([ip, data]) => {
+    if (now - data.timestamp > RATE_LIMIT_WINDOW) {
+      rateLimit.delete(ip);
+    }
+  });
+}, RATE_LIMIT_WINDOW);
+
+export function checkRateLimit(request: NextRequest) {
+  const ip = request.ip || 'anonymous';
+  const now = Date.now();
+  const windowData = rateLimit.get(ip) || { count: 0, timestamp: now };
+
+  // Reset if outside window
+  if (now - windowData.timestamp > RATE_LIMIT_WINDOW) {
+    windowData.count = 0;
+    windowData.timestamp = now;
+  }
+
+  windowData.count++;
+  rateLimit.set(ip, windowData);
+
+  if (windowData.count > MAX_REQUESTS) {
+    return NextResponse.json(
+      { error: 'Too many requests' },
+      { status: 429 }
+    );
+  }
+
+  return null;
+} 
