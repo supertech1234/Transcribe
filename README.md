@@ -211,6 +211,16 @@ When authentication is disabled (`AUTH_ENABLED=false` and `NEXT_PUBLIC_AUTH_ENAB
 - Login page redirects to home
 - Okta configuration is optional
 
+### Okta Configuration
+
+When setting up this application with Okta, use the following configuration:
+
+- **Initiate Login URI**: `https://your-app-domain/api/auth/signin`
+- **Redirect URIs**: `https://your-app-domain/api/auth/callback/okta`
+- **Sign-out Redirect URIs**: `https://your-app-domain`
+
+This ensures proper authentication flow between Okta and the application.
+
 ## Local Development Setup
 
 1. Clone the repository:
