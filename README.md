@@ -365,16 +365,38 @@ When authentication is disabled (`AUTH_ENABLED=false` and `NEXT_PUBLIC_AUTH_ENAB
    Add the following configuration:
    ```apache
    <VirtualHost *:80>
-       ServerName your-domain.com
-       ServerAdmin webmaster@your-domain.com
+       ServerName transcribe.yourdomain
+       Redirect permanent / https://transcribe.yourdomain/
+   </VirtualHost>
+
+   <VirtualHost *:443>
+       ServerName transcribe.yourdomain
+       ServerAdmin webmaster@transcribe.yourdomain
+
+       SSLEngine On
+       SSLCertificateFile /etc/apache2/ssl/transcribe.yourdomain.cer
+       SSLCertificateKeyFile /etc/apache2/ssl/transcribe.yourdomain.key
+
+       # Strong SSL Settings
+       SSLProtocol all -SSLv2 -SSLv3 -TLSv1 -TLSv1.1
+       SSLCipherSuite EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH
+       SSLHonorCipherOrder on
+       SSLCompression off
+
+       KeepAlive On
+       KeepAliveTimeout 1
+       MaxKeepAliveRequests 0
 
        ProxyPreserveHost On
        ProxyPass / http://localhost:3000/
        ProxyPassReverse / http://localhost:3000/
+       ProxyTimeout 7200
 
        ErrorLog ${APACHE_LOG_DIR}/transcription-error.log
        CustomLog ${APACHE_LOG_DIR}/transcription-access.log combined
    </VirtualHost>
+
+
    ```
 
    Enable the site and required modules (Ubuntu only):
