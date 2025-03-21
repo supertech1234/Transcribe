@@ -282,7 +282,7 @@ When authentication is disabled (`AUTH_ENABLED=false` and `NEXT_PUBLIC_AUTH_ENAB
 1. **Prepare the Application**:
    ```bash
    # Install dependencies
-   npm install --production
+   npm install
 
    # Build the application
    npm run build
